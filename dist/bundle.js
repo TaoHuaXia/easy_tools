@@ -79,7 +79,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar a = function a(dd) {\n  console.log(dd);\n};\n\na('safadsfdsafdf');\n\n//# sourceURL=webpack:///./index.js?");
+eval("\n\nvar checkType = function checkType(target, type) {\n  return toString.call(target).toLowerCase() === '[object ' + type.toLowerCase() + ']';\n};\n\n/*\n * target: 目标源对象\n * key: 要获取的对象的Key，多层用.来隔开\n * 例如要获取name\n * obj = {\n *   person: {\n *     name: 'sssss'\n *   }\n * }\n * key为\n * person.name\n * 适用场景：\n * 当某个字段不确定是否存在或者有值时，可以摆脱痛苦的 obj && obj.person && obj.person.name这种写法\n * 可直接使用getKey迭代器来进行判断该字段是否有值\n * */\nvar getKey = function getKey(target, key) {\n  if (!target || !checkType(target, 'Object')) {\n    console.error('target is required and must be a object');\n    return;\n  } else if (!key || typeof key !== 'string') {\n    console.error('key is required and must be a string');\n    return;\n  }\n  var keys = key.split('.');\n  for (var i = 0, len = keys.length; i < len; i++) {\n    if (target[keys[i]] !== undefined) {\n      target = target[keys[i]];\n    } else {\n      return undefined;\n    }\n  }\n  return target;\n};\nconsole.log(getKey([], 'a.b'));\nconsole.log(getKey({\n  a: {\n    b: 'sss'\n  }\n}, 'a.b'));\n\nconsole.log(checkType([], 'array'));\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ })
 
