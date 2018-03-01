@@ -1,0 +1,26 @@
+{
+  "name": "easy_tools",
+  "version": "1.0.0",
+  "description": "一个解决日常开发细小问题的方法库",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TaoHuaXia/easy_tools.git"
+  },
+  "author": "ServerWang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TaoHuaXia/easy_tools/issues"
+  },
+  "homepage": "https://github.com/TaoHuaXia/easy_tools#readme",
+  "devDependencies": {
+    "babel-loader": "^7.1.3",
+    "babel-preset-es2015": "^6.24.1",
+    "webpack": "^4.0.1",
+    "webpack-cli": "^2.0.9"
+  }
+}
